@@ -1,0 +1,60 @@
+
+/* Image centered inside container */
+.goodnessec .goodnesseccont img {
+    max-width: 100%;
+}
+
+
+.buttermilk{
+    background-color: #fff;
+    background-image: linear-gradient(#fff7ef,#fff);
+    background-image: -webkit-linear-gradient(#fff7ef,#fff);
+    background-image: -moz-linear-gradient(#fff7ef,#fff);
+    background-image: -ms-linear-gradient(#fff7ef,#fff);
+    background-image: -o-linear-gradient(#fff7ef,#fff);
+    padding: 50px 40px;
+    border: 2px solid #f82793;
+    box-shadow:0 0 12px #f82793;
+    padding-bottom:20px;
+}
+
+.smbg{
+    background-color: #fff;
+    background-image: linear-gradient(rgba(110,69,143,0.1),#fff);
+    background-image: -webkit-linear-gradient(rgba(110,69,143,0.1),#fff);
+    background-image: -moz-linear-gradient(rgba(110,69,143,0.1),#fff);
+    background-image: -ms-linear-gradient(rgba(110,69,143,0.1),#fff);
+    background-image: -o-linear-gradient(rgba(110,69,143,0.1),#fff);
+}
+
+.curdbgpro{
+    background-color: #fff;
+    background-image: linear-gradient(rgba(10,77,123,0.1),#fff);
+    background-image: -webkit-linear-gradient(rgba(10,77,123,0.1),#fff);
+    background-image: -moz-linear-gradient(rgba(10,77,123,0.1),#fff);
+    background-image: -ms-linear-gradient(rgba(10,77,123,0.1),#fff);
+    background-image: -o-linear-gradient(rgba(10,77,123,0.1),#fff);
+}
+
+.mlkpro {
+    color:#636362;
+    font-size: 22px;
+    line-height:22px;
+    margin-bottom:15px;
+    width:43%;
+    margin:0 auto;
+    text-align: center;
+}
+.goodnessec a{
+    text-decoration: none;
+}
+
+.navbar {
+  background-color: #097e61; 
+  font-family: Georgia, serif;
+  font-size: large;
+}
+
+
+
+

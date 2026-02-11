@@ -1,0 +1,1 @@
+""" arnob app's migrations __init__.py file"""

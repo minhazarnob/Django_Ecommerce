@@ -1,0 +1,26 @@
+{% extends "arnob/base.html" %}
+{% load static %}
+{% block title %} Wishlist {% endblock title %}
+
+{% block main_content %}
+    <div class="container my-5" style="font-family: Georgia, serif;">
+        <div class="row g-5"> 
+            {% for prod in product %}
+            <div class="col-sm-6 col-md-4 text-center">
+                <div class="p-2 rounded shadow-lg" style="border: 2px solid #f82793;">
+                    <a href="{% url 'product-detail' prod.id %}" class="text-decoration-none text-dark d-block">
+                        <img src="{{prod.product_image.url}}" class="img-fluid rounded mb-3" alt="{{prod.title}}">
+                        <h5 class="fw-bold mb-2 fs-5">{{ prod.title }}</h5>
+                        <p class="fw-bold text-danger fs-4" style="color:#f82793">
+                            Rs.{{ prod.discounted_price }}/-
+                            <small class="fw-light text-decoration-line-through text-muted">{{ prod.selling_price }}</small>
+                        </p>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock main_content %}

@@ -1,0 +1,1 @@
+"""Ecommerce project's __init__.py file"""

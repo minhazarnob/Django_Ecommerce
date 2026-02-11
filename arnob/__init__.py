@@ -1,0 +1,1 @@
+""" arnob app's __init__.py file """

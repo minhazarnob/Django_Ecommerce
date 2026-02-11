@@ -1,0 +1,53 @@
+{% extends "arnob/base.html" %}
+{% load static %}
+{% block title %} About {% endblock title%}
+
+{% block banner_slider %}
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'arnob/images/banner/b1.jpg'%}" class="d-block w-100" alt="banner-image">
+            </div>
+            <div class="carousel-item ">
+                <img src="{% static 'arnob/images/banner/b2.jpg'%}" class="d-block w-100" alt="banner-image">
+            </div>
+            <div class="carousel-item ">
+                <img src="{% static 'arnob/images/banner/b3.jpg'%}" class="d-block w-100" alt="banner-image">
+            </div>
+            <div class="carousel-item ">
+                <img src="{% static 'arnob/images/banner/b4.jpg'%}" class="d-block w-100" alt="banner-image">
+            </div>
+        </div>
+    </div>
+{% endblock banner_slider %}
+
+{% block main_content %}
+<div class="container mt-3">
+
+    <div class="row container">
+        <div class="row text-center p-5 text-white border-bottom shadow rounded-2" style="background-color: #097e61;">
+            <h2 class="text-center fs-2 text-warning" style=" font-family: Georgia, serif;">About Us</h2>
+            <small class="fs-3 text-center" style=" font-family: Georgia, serif;">
+                This is a public limited company having its registered
+                and corporate office at Gazipur district of Dhaka Division in Bangladesh.
+                The company has incorporated in the year 2018 and production commenced in 2020.
+                This is one of the fastest growing public listed companies in Gazipur.
+            </small>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="row container">
+        <div class="row text-center p-5 text-white border-bottom shadow rounded-2" style="background-color: #097e61;">
+            <h2 class="text-center fs-2 text-warning" style=" font-family: Georgia, serif;">Mission</h2>
+            <small class="fs-3 text-center" style=" font-family: Georgia, serif;">
+                To embrace the right technology to delight our Customers
+                empowering the farmer community through our unique "Relatioship farming" model.
+                To anticipate,understand and respond to our Customers neeeds by creating high-quality 
+                products and making them available through innovative and convenient channels.
+            </small>
+        </div>
+    </div>
+    <br><br><br>
+</div>
+{% endblock main_content %}

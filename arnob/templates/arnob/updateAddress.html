@@ -1,0 +1,53 @@
+{% extends "arnob/base.html" %}
+{% load static %}
+{% block title %} updateAddress {% endblock title %}
+
+{% block main_content %}
+<div class="container mt-4">
+    <div class="row justify-content-center text-center">
+
+        <div class="col-12 mb-4" style="font-family: Georgia, serif;">
+            <h3>
+                Welcome
+                <span class="text-capitalize" style="color:#f82793">
+                    {{ request.user }}
+                </span>
+            </h3><hr>
+        </div>
+
+        <div class="col-sm-8 fs-4" style="font-family: Georgia, serif;">
+            <form action="" method="post">
+                {% csrf_token %}
+
+                {% for fm in form %}
+                    <div class="mb-3 text-start">
+                        {{ fm.label_tag }} {{ fm }}
+                        <small class="text-danger">
+                            {{ fm.errors|striptags }}
+                        </small>
+                    </div>
+                {% endfor %}
+
+                <div class="d-flex justify-content-between gap-3 mt-4">
+                    <button type="submit" class="btn btn-success fs-4">
+                        Update
+                    </button>
+                    <a href="{% url 'address' %}" class="btn btn-warning fs-4">
+                        Back
+                    </a>
+                </div>
+
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="alert alert-danger mt-3">
+                            {{ error }}
+                        </p>
+                    {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock main_content %}

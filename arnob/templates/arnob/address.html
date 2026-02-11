@@ -1,0 +1,57 @@
+{% extends "arnob/base.html" %}
+{% load static %}
+{% block title %} Address {% endblock title %}
+
+{% block main_content %}
+<div class="container my-5" style="font-family: Georgia, serif;">
+    <div class="row mb-4">
+        <div class="col">
+            <h3 class="fs-2">
+                Welcome <span class="text-capitalize" style="color:#f82793">{{ request.user }}</span>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid mb-2">
+                    <a href="{% url 'profile' %}" class="btn btn-warning fs-4">Profile</a>
+                </li>
+                <li class="d-grid">
+                    <a href="{% url 'address' %}" class="btn btn-secondary fs-4">Address</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-8 offset-sm-1">
+            <div class="row">
+                {% for ad in add %}
+                <div class="col-sm-6">
+                    <div class="card m-3 shadow-lg rounded-3 bg-light">
+                        <div class="card-header text-white fs-4" style="background:#097e61">
+                            Address-{{ forloop.counter }}
+                        </div>
+                        <div class="card-body fs-5">
+                            <p><i class="bi bi-person-fill text-primary me-2"></i> <strong>Name:</strong> {{ ad.name }}</p>
+                            <p><i class="bi bi-geo-alt-fill text-danger me-2"></i> <strong>Locality:</strong> {{ ad.locality }}</p>
+                            <p><i class="bi bi-telephone-fill text-success me-2"></i> <strong>Mobile:</strong> {{ ad.mobile }}</p>
+                            <p><i class="bi bi-building text-info me-2"></i> <strong>City:</strong> {{ ad.city }}</p>
+                            <p><i class="bi bi-flag-fill text-warning me-2"></i> <strong>State:</strong> {{ ad.state }}</p>
+                            <p><i class="bi bi-postcard-fill text-secondary me-2"></i> <strong>Zipcode:</strong> {{ ad.zipcode }}</p>
+                            
+                            <!-- Right-aligned button -->
+                            <div class="d-flex justify-content-end mt-3">
+                                <a href="{% url 'updateAddress' pk=ad.id %}" class="btn btn-success btn-sm fs-5">
+                                    Update
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div><br><br>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

@@ -1,0 +1,99 @@
+{% extends "arnob/base.html" %}
+{% load static %}
+{% block title %} Cart {% endblock title %}
+
+{% block main_content %}
+<div class="container my-5" style="font-family: Georgia, serif;">
+    <div class="row">
+
+        {% if cart %}
+        <h1 class="text-center mb-5 fs-2">Shopping Cart</h1>
+
+        <!-- Cart Items -->
+        <div class="col-sm-8">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h3 class="fs-3">Cart</h3>
+
+                    {% for item in cart %}
+                    <div class="row mb-3">
+                        <div class="col-sm-3 text-center align-self-center">
+                            <img src="{{ item.product.product_image.url }}"
+                                 class="img-fluid img-thumbnail shadow-sm"
+                                 height="300" width="200" alt="">
+                        </div>
+
+                        <div class="col-sm-9">
+                            <h5 class="fs-4">{{ item.product.title }}</h5>
+                            <p class="mb-2 text-muted small fs-5">
+                                {{ item.product.description }}
+                            </p>
+
+                            <div class="my-3">
+                                <label class="fs-4">Quantity:</label>
+                                <a class="minus-cart btn" pid="{{ item.product.id }}">
+                                    <i class="fas fa-minus-square fa-lg"></i>
+                                </a>
+
+                                <span class="mx-2 quantity fs-4">{{ item.quantity }}</span>
+
+                                <a class="plus-cart btn" pid="{{ item.product.id }}">
+                                    <i class="fas fa-plus-square fa-lg"></i>
+                                </a>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="remove-cart btn btn-sm btn-warning fs-5" pid="{{ item.product.id }}">Remove item</a>
+                                <p class="mb-0 fs-4">
+                                    <strong>Rs. {{ item.product.discounted_price }}</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-muted">
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Price Summary -->
+        <div class="col-sm-4">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h3>The Total Amount</h3>
+
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between px-2 fs-5">
+                            Amount <span id="amount">Rs. {{ amount }}</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between px-2 fs-5">
+                            Shipping <span>Rs. 40.00</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between border-0 px-2 mb-3 fs-5">
+                            <div>
+                                <strong>Total</strong>
+                                <small>(including GST)</small>
+                            </div>
+                            <span id="totalamount">
+                                <strong>Rs. {{ totalamount }}</strong>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <div class="d-grid">
+                        <a href="{% url 'checkout' %}" class="btn btn-success fs-5">Place Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <h1 class="text-center mb-5 fs-4">Cart is Empty</h1>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock main_content %}
